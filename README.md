@@ -185,10 +185,6 @@ We use GitHub Actions for continuous integration and deployment. Anything that g
   ```sh
   pnpm docker:run:remix-app
   ```
-- (Optionnal) If you want to manually deploy to fly.io:
-  ```sh
-  DOCKER_DEFAULT_PLATFORM=linux/amd64 flyctl deploy --config ./apps/remix-app/fly.toml --dockerfile ./apps/remix-app/Dockerfile
-  ```
 
 ## Useful Turborepo Links
 

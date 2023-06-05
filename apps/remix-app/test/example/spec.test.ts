@@ -19,14 +19,14 @@ describe("Testing internal package.", () => {
       email: "mark@anison.dev",
     },
     {
-      name: "john",
-      email: "john@anison.dev",
+      name: "mark",
+      email: "mark@anison.dev",
     },
   ];
 
-  it("Should get john", async () => {
+  it("Should get mark", async () => {
     const commercial = lookUpSalesPersonForZipcode("97490", salesPersons);
     expect(commercial).toBeDefined();
-    expect(commercial?.name).toBe("john");
+    expect(commercial?.name).toBe("mark");
   });
 });

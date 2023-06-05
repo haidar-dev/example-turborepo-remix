@@ -25,8 +25,8 @@ describe("Dummy test", () => {
         email: "lance@anison.dev",
       },
       {
-        name: "john",
-        email: "john@anison.dev",
+        name: "mark",
+        email: "mark@anison.dev",
       },
       {
         name: "mike",
@@ -34,10 +34,10 @@ describe("Dummy test", () => {
       },
     ];
 
-    it("Should get john", async () => {
+    it("Should get mark", async () => {
       const commercial = lookUpSalesPersonForZipcode("97490", salesPersons);
       expect(commercial).toBeDefined;
-      expect(commercial?.name).toBe("john");
+      expect(commercial?.name).toBe("mark");
     });
     it("Should get undefined", async () => {
       const commercial = lookUpSalesPersonForZipcode("00000", salesPersons);
