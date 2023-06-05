@@ -1,4 +1,4 @@
-app = "remix-gospel-stack"
+app = "remix-turborepo"
 primary_region = "cdg"
 kill_signal = "SIGINT"
 kill_timeout = "5s"

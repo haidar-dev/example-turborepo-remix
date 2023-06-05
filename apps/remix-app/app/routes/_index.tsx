@@ -9,8 +9,8 @@ import {
 import {
   lookUpSalesPersonForZipcode,
   type SalesPersonDirectory,
-} from "@remix-gospel-stack/internal-nobuild";
-import { Button, helloFromUILibrary } from "@remix-gospel-stack/ui";
+} from "@remix-turborepo/internal-nobuild";
+import { Button, helloFromUILibrary } from "@remix-turborepo/ui";
 
 import Service, { helloWorld } from "~/services.server";
 
@@ -24,13 +24,13 @@ export default function Index() {
   const salesPersons: SalesPersonDirectory = [
     {
       name: "mark",
-      email: "mark@remix-gospel-stack.com",
+      email: "mark@remix-turborepo.com",
       regexp:
         /^01|^73|^74|^05|^38|^69|^42|^43|^07|^26|^04|^06|^83|^13|^84|^30|^07|^48|^12|^2B|^2A/,
     },
     {
       name: "coltrane",
-      email: "coltrane@remix-gospel-stack.com",
+      email: "coltrane@remix-turborepo.com",
       regexp:
         /^62|^59|^80|^60|^02|^08|^77|^51|^10|^89|^21|^52|^55|^71|^39|^25|^70|^90|^88|^54|^57|^67|^68/,
     },
@@ -38,18 +38,18 @@ export default function Index() {
       name: "philippe",
       regexp:
         /^33|^24|^16|^17|^87|^23|^36|^18|^41|^37|^86|^79|^85|^86|^18|^58|^03|^23|^63|^15|^19|^23|^87|^19|^46|^15|^46|^82|^81|^34|^66|^11|^09|^31|^32|^65|^64|^40|^47|^82/,
-      email: "philippe@remix-gospel-stack.com",
+      email: "philippe@remix-turborepo.com",
     },
     {
       name: "lance",
-      email: "lance@remix-gospel-stack.com",
+      email: "lance@remix-turborepo.com",
       regexp:
         /^76|^27|^78|^95|^94|^93|^92|^91|^45|^28|^41|^37|^72|^61|^14|^50|^35|^56|^22|^29|^44|^49|^53/,
     },
-    { name: "john", email: "john@remix-gospel-stack.com", regexp: /^974|^976/ },
+    { name: "john", email: "john@remix-turborepo.com", regexp: /^974|^976/ },
     {
       name: "mike",
-      email: "mike@remix-gospel-stack.com",
+      email: "mike@remix-turborepo.com",
       regexp: /^971|^972|^973|^975|^984|^986|^987|^988/,
     },
   ];
@@ -131,13 +131,8 @@ export default function Index() {
                 href: "https://tailwindcss.com",
               },
               {
-                src: "https://user-images.githubusercontent.com/1500684/157764454-48ac8c71-a2a9-4b5e-b19c-edef8b8953d6.svg",
-                alt: "Cypress",
-                href: "https://www.cypress.io",
-              },
-              {
                 src: "https://user-images.githubusercontent.com/4941205/192078609-3f08928d-2811-4a33-ab32-062a77836d57.svg",
-                alt: "pNPM",
+                alt: "pnpm",
                 href: "https://pnpm.io/",
               },
               {

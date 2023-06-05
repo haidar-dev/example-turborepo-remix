@@ -1,5 +1,5 @@
 {
-  "name": "@remix-gospel-stack/eslint-config-vite",
+  "name": "@remix-turborepo/eslint-config-vite",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

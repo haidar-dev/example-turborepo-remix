@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@remix-gospel-stack/remix-app",
+  "name": "@remix-turborepo/remix-app",
   "version": "1.0.0",
   "sideEffects": false,
   "scripts": {
@@ -14,14 +14,11 @@
     "dev:remix": "cross-env NODE_ENV=development remix watch",
     "dev:server": "cross-env NODE_ENV=development node --inspect --require ./node_modules/dotenv/config ./build/server.js",
     "start": "cross-env NODE_ENV=production node ./build/server.js",
-    "docker:build": "cd ../.. & docker build -t remix-gospel-stack-remix-app -f ./apps/remix-app/Dockerfile .",
+    "docker:build": "cd ../.. & docker build -t remix-turborepo-remix-app -f ./apps/remix-app/Dockerfile .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
-    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 \"npx cypress open\"",
-    "test:e2e:run": "cross-env PORT=8811 start-server-and-test start:mocks http://localhost:8811 \"npx cypress run\"",
-    "test:e2e:ci": "npx cypress run",
-    "typecheck": "tsc -b && tsc -b cypress"
+    "typecheck": "tsc -b"
   },
   "eslintIgnore": [
     "/node_modules",
@@ -29,10 +26,10 @@
     "/public/build"
   ],
   "dependencies": {
-    "@remix-gospel-stack/ui": "workspace:*",
-    "@remix-gospel-stack/internal-nobuild": "workspace:*",
-    "@remix-gospel-stack/business": "workspace:*",
-    "@remix-gospel-stack/database": "workspace:*",
+    "@remix-turborepo/ui": "workspace:*",
+    "@remix-turborepo/internal-nobuild": "workspace:*",
+    "@remix-turborepo/business": "workspace:*",
+    "@remix-turborepo/database": "workspace:*",
     "@remix-run/express": "^1.16.1",
     "@remix-run/node": "^1.16.1",
     "@remix-run/react": "^1.16.1",
@@ -45,14 +42,13 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
-    "@remix-gospel-stack/eslint-config": "workspace:*",
-    "@remix-gospel-stack/tailwind-config": "workspace:*",
+    "@remix-turborepo/eslint-config": "workspace:*",
+    "@remix-turborepo/tailwind-config": "workspace:*",
     "@remix-run/dev": "^1.16.1",
     "@remix-run/eslint-config": "^1.16.1",
     "@swc/core": "^1.3.60",
     "@swc/helpers": "^0.5.1",
     "@tailwindcss/typography": "^0.5.9",
-    "@testing-library/cypress": "^9.0.0",
     "@testing-library/dom": "^9.3.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -68,11 +64,9 @@
     "@vitest/coverage-c8": "^0.31.1",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.0.1",
-    "cypress": "^12.13.0",
     "dotenv": "^16.0.3",
     "esbuild": "^0.17.19",
     "eslint": "^8.41.0",
-    "eslint-plugin-cypress": "^2.13.3",
     "happy-dom": "^9.20.3",
     "nodemon": "^2.0.22",
     "npm-run-all": "^4.1.5",

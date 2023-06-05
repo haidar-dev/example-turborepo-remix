@@ -1,5 +1,5 @@
 {
-  "name": "@remix-gospel-stack/database",
+  "name": "@remix-turborepo/database",
   "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -28,8 +28,8 @@
     "@prisma/client": "^4.14.1"
   },
   "devDependencies": {
-    "@remix-gospel-stack/eslint-config-vite": "workspace:*",
-    "@remix-gospel-stack/tsconfig": "workspace:*",
+    "@remix-turborepo/eslint-config-vite": "workspace:*",
+    "@remix-turborepo/tsconfig": "workspace:*",
     "@types/node": "^20.2.5",
     "prisma": "^4.14.1",
     "rimraf": "^5.0.1",

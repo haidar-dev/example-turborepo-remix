@@ -3,7 +3,7 @@ import { PlopTypes } from "@turbo/gen";
 export default function generator(plop: PlopTypes.NodePlopAPI): void {
   plop.setGenerator("example", {
     description:
-      "An example Turborepo generator - creates a new file at the root of the project",
+      "Turborepo generator example to create a new file at the root of the project",
     prompts: [
       {
         type: "input",

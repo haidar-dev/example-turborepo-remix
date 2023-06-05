@@ -6,10 +6,10 @@ export default {
   // serverBuildPath: "build/index.js",
   // publicPath: "/build/",
   serverDependenciesToBundle: [
-    "@remix-gospel-stack/internal-nobuild",
-    "@remix-gospel-stack/database",
-    "@remix-gospel-stack/business",
-    "@remix-gospel-stack/ui",
+    "@remix-turborepo/internal-nobuild",
+    "@remix-turborepo/database",
+    "@remix-turborepo/business",
+    "@remix-turborepo/ui",
   ],
   watchPaths: [
     "../../packages/ui/src/**/*",

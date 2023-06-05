@@ -12,7 +12,7 @@
         ".cache"
       ]
     },
-    "@remix-gospel-stack/remix-app#start": {
+    "@remix-turborepo/remix-app#start": {
       "dependsOn": ["^build"],
       "outputs": ["public/build/**"]
     },

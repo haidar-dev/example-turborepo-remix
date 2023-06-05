@@ -1,1 +1,1 @@
-module.exports = require("@remix-gospel-stack/eslint-config-vite/eslint-preset");
+module.exports = require("@remix-turborepo/eslint-config-vite/eslint-preset");

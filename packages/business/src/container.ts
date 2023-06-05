@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 import { container, Lifecycle } from "tsyringe";
 
-import { prisma } from "@remix-gospel-stack/database";
+import { prisma } from "@remix-turborepo/database";
 
 import { PrismaUserRepository } from "./repositories/user-repository";
 

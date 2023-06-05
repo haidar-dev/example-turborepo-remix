@@ -1,5 +1,5 @@
 {
-  "name": "@remix-gospel-stack/eslint-config",
+  "name": "@remix-turborepo/eslint-config",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",

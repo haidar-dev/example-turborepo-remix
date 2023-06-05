@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { prisma } from "@remix-gospel-stack/database";
+import { prisma } from "@remix-turborepo/database";
 
 /**
  * Users

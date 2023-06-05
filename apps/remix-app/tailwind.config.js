@@ -1,2 +1,2 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = require("@remix-gospel-stack/tailwind-config/tailwind.config");
+module.exports = require("@remix-turborepo/tailwind-config/tailwind.config");

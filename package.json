@@ -1,5 +1,5 @@
 {
-  "name": "@remix-gospel-stack/root",
+  "name": "@remix-turborepo/root",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -22,8 +22,8 @@
     "lint": "turbo run lint",
     "docker:db": "docker-compose -f docker-compose.yml up -d",
     "docker:build": "turbo run docker:build",
-    "docker:build:remix-app": "docker build -t remix-gospel-stack-remix-app -f ./apps/remix-app/Dockerfile .",
-    "docker:run:remix-app": "docker run -it --init --rm -p 3000:3000 --env-file .env.docker --env DATABASE_URL='postgresql://postgres:postgres@db:5432/postgres' --network=app_network remix-gospel-stack-remix-app",
+    "docker:build:remix-app": "docker build -t remix-turborepo-remix-app -f ./apps/remix-app/Dockerfile .",
+    "docker:run:remix-app": "docker run -it --init --rm -p 3000:3000 --env-file .env.docker --env DATABASE_URL='postgresql://postgres:postgres@db:5432/postgres' --network=app_network remix-turborepo-remix-app",
     "test": "turbo run test",
     "test:dev": "turbo run test:dev",
     "start": "turbo run start",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.0.0",
-    "@remix-gospel-stack/eslint-config": "workspace:*",
+    "@remix-turborepo/eslint-config": "workspace:*",
     "@turbo/gen": "^1.9.9",
     "eslint": "^8.41.0",
     "json5": "^2.2.3",

@@ -5,7 +5,7 @@
       "target": "ES6",
       "jsx": "react-jsx",
     },
-    "extends": "@remix-gospel-stack/tsconfig/react-library.json",
+    "extends": "@remix-turborepo/tsconfig/react-library.json",
     "include": ["src"],
     "exclude": ["dist", "build", "node_modules"]
   }

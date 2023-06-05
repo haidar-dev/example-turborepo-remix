@@ -7,7 +7,7 @@ Remix TypeScript monorepo with Turborepo pipelines, Prisma, PostgreSQL, Docker d
 ### Quickstart (recommended)
 
 ```bash
-pnpx create-remix@latest --install --typescript --template https://github.com/PhilDL/remix-gospel-stack
+pnpx create-remix@latest --install --typescript --template https://github.com/PhilDL/remix-turborepo
 ```
 
 > :minidisc: This repository is opiniated:
@@ -18,8 +18,8 @@ pnpx create-remix@latest --install --typescript --template https://github.com/Ph
 ### (Alternative) Cloning the repository
 
 ```bash
-git clone git@github.com:PhilDL/remix-gospel-stack.git
-cd remix-gospel-stack
+git clone git@github.com:PhilDL/remix-turborepo.git
+cd remix-turborepo
 pnpm add -w @remix-run/dev
 pnpm remix init
 ```
@@ -33,15 +33,15 @@ _This Package **uses `pnpm` as the package manager** of choice to manage workspa
 ### Monorepo architecture powered by [Turborepo](https://turborepo.org/) and pnpm workspaces:
 
 - `apps` Folder containing the applications
-  - [`remix-app`](https://github.com/PhilDL/remix-gospel-stack/tree/main/apps/remix-app): the [Remix.run](https://remix.run) app
-  - [`nextjs-app`](https://github.com/PhilDL/remix-gospel-stack/tree/main/apps/nextjs-app): a [Next.js](https://nextjs.org) app
+  - [`remix-app`](https://github.com/PhilDL/remix-turborepo/tree/main/apps/remix-app): the [Remix.run](https://remix.run) app
+  - [`nextjs-app`](https://github.com/PhilDL/remix-turborepo/tree/main/apps/nextjs-app): a [Next.js](https://nextjs.org) app
 - `packages` Folder containing examples
 
-  - [`database`](https://github.com/PhilDL/remix-gospel-stack/tree/main/packages/database): a [Prisma](https://prisma.io) wrapper ready to be used in other packages, or apps. Bundled with [tsup](https://tsup.egoist.dev/).
-  - [`business`](https://github.com/PhilDL/remix-gospel-stack/tree/main/packages/business): an example package using [Tsyringe](https://github.com/microsoft/tsyringe) to inject the Prisma `database` as a dependency and using a _repository pattern_ like example.
-  - [`internal-nobuild`](https://github.com/PhilDL/remix-gospel-stack/tree/main/packages/internal-nobuild): an example package that is pure TypeScript with no build steps. The `main` entrypoint to the package is directly `src/index.ts`. Remix takes care of compiling with its own build step (with esbuild). This packages also contains unit test with Vitest.
+  - [`database`](https://github.com/PhilDL/remix-turborepo/tree/main/packages/database): a [Prisma](https://prisma.io) wrapper ready to be used in other packages, or apps. Bundled with [tsup](https://tsup.egoist.dev/).
+  - [`business`](https://github.com/PhilDL/remix-turborepo/tree/main/packages/business): an example package using [Tsyringe](https://github.com/microsoft/tsyringe) to inject the Prisma `database` as a dependency and using a _repository pattern_ like example.
+  - [`internal-nobuild`](https://github.com/PhilDL/remix-turborepo/tree/main/packages/internal-nobuild): an example package that is pure TypeScript with no build steps. The `main` entrypoint to the package is directly `src/index.ts`. Remix takes care of compiling with its own build step (with esbuild). This packages also contains unit test with Vitest.
     Remix uses `tsconfig.json` paths to reference to that project and its types. _I would recommend these types of **internal** packages when you don't plan on publishing the package._
-  - [`ui`](https://github.com/PhilDL/remix-gospel-stack/tree/main/packages/ui): a dummy React UI library (which contains a single `<Button>` component), build with tsup.
+  - [`ui`](https://github.com/PhilDL/remix-turborepo/tree/main/packages/ui): a dummy React UI library (which contains a single `<Button>` component), build with tsup.
 
 - `config-packages`:
   - Eslint packages with different preset configs.
@@ -54,10 +54,10 @@ _This Package **uses `pnpm` as the package manager** of choice to manage workspa
 - Database [Multi-region Fly PostgreSQL Cluster](https://fly.io/docs/getting-started/multi-region-databases/)
 - Remix App Healthcheck endpoint for [Fly backups region fallbacks](https://fly.io/docs/reference/configuration/#services-http_checks)
 - [GitHub Actions](https://github.com/features/actions) for deploy the Remix App on merge to production and staging environments.
-- End-to-end testing with [Cypress](https://cypress.io) in the Remix App
 - Unit testing with [Vitest](https://vitest.dev) and [Testing Library](https://testing-library.com) inside the different packages.
 - Code formatting with [Prettier](https://prettier.io)
 - Static Types with [TypeScript](https://typescriptlang.org)
+- End-to-end testing with Playwright later on in the Remix App
 
 > **Warning**
 > All the following commands should be launched from the **monorepo root directory**
@@ -91,12 +91,12 @@ _This Package **uses `pnpm` as the package manager** of choice to manage workspa
   ```
 - Run the first build (with dependencies via the `...` option)
   ```bash
-  pnpm run build --filter=@remix-gospel-stack/remix-app...
+  pnpm run build --filter=@remix-turborepo/remix-app...
   ```
   **Running simply `pnpm run build` will build everything, including the NextJS app.**
 - Run the Remix dev server
   ```bash
-  pnpm run dev --filter=@remix-gospel-stack/remix-app
+  pnpm run dev --filter=@remix-turborepo/remix-app
   ```
 
 ## Create packages
@@ -104,7 +104,7 @@ _This Package **uses `pnpm` as the package manager** of choice to manage workspa
 ### Internal package
 
 ```bash
-turbo gen workspace --name @remix-gospel-stack/foobarbaz --type package --copy
+turbo gen workspace --name @remix-turborepo/foobarbaz --type package --copy
 ```
 
 Then follow the prompts
@@ -113,29 +113,31 @@ Then follow the prompts
 
 Check the `turbo.json` file to see the available pipelines.
 
-- Run the Cypress tests and Dev
-  ```bash
-  pnpm run test:e2e:dev --filter=@remix-gospel-stack/remix-app
-  ```
-- Lint everything
+### Lint everything
+
   ```bash
   pnpm run lint
   ```
-- Typecheck the whole monorepo
+### Typecheck the whole monorepo
+
   ```bash
   pnpm run typecheck
   ```
-- Test the whole monorepo
+### Test the whole monorepo
+
   ```bash
   pnpm run test
   or
   pnpm run test:dev
   ```
-- How to install an npm package in the Remix app ?
+### How to install an npm package in the Remix app ?
+
   ```bash
   pnpm add dayjs --filter remix-app
   ```
-- Tweak the tsconfigs, eslint configs in the `config-package` folder. Any package or app will then extend from these configs.
+
+Tweak the tsconfigs, eslint configs in the `config-package` folder. Any package or app will
+ then extend from these configs.
 
 ## Deployement
 
@@ -153,8 +155,8 @@ Prior to your first deployment, you'll need to do a few things:
 - Create two apps on Fly, one for staging and one for production:
 
   ```sh
-  fly apps create remix-gospel-stack
-  fly apps create remix-gospel-stack-staging
+  fly apps create remix-turborepo
+  fly apps create remix-turborepo-staging
   ```
 
   > **Note:** Once you've successfully created an app, double-check the `fly.toml` file to ensure that the `app` key is the name of the production app you created. This Stack [automatically appends a unique suffix at init](https://github.com/remix-run/blues-stack/blob/4c2f1af416b539187beb8126dd16f6bc38f47639/remix.init/index.js#L29) which may not match the apps you created on Fly. You will likely see [404 errors in your Github Actions CI logs](https://community.fly.io/t/404-failure-with-deployment-with-remix-blues-stack/4526/3) if you have this mismatch.
@@ -175,11 +177,11 @@ Prior to your first deployment, you'll need to do a few things:
 - Create a database for both your staging and production environments. Run the following:
 
   ```sh
-  fly postgres create --name remix-gospel-stack-db
-  fly postgres attach --app remix-gospel-stack remix-gospel-stack-db
+  fly postgres create --name remix-turborepo-db
+  fly postgres attach --app remix-turborepo remix-turborepo-db
 
-  fly postgres create --name remix-gospel-stack-staging-db
-  fly postgres attach --app remix-gospel-stack-staging remix-gospel-stack-staging-db
+  fly postgres create --name remix-turborepo-staging-db
+  fly postgres attach --app remix-turborepo-staging remix-turborepo-staging-db
   ```
 
   > **Note:** You'll get the same warning for the same reason when attaching the staging database that you did in the `fly set secret` step above. No worries. Proceed!
@@ -238,7 +240,7 @@ Learn more about the power of Turborepo:
 
 ## Support
 
-If you found the template useful, please consider giving it a [Star ⭐](https://github.com/PhilDL/remix-gospel-stack). Thanks you!
+If you found the template useful, please consider giving it a [Star ⭐](https://github.com/PhilDL/remix-turborepo). Thanks you!
 
 ## Disclaimer
 

@@ -17,8 +17,8 @@ const main = async ({ isTypeScript, rootDirectory }) => {
     console.log(`This template only supports TypeScript`);
   }
 
-  const appNameRegex = escapeRegExp("remix-gospel-stack");
-  const orgNameRegex = escapeRegExp("@remix-gospel-stack");
+  const appNameRegex = escapeRegExp("remix-turborepo");
+  const orgNameRegex = escapeRegExp("@remix-turborepo");
 
   const DIR_NAME = path.basename(rootDirectory);
   const SUFFIX = getRandomString(2);
@@ -159,7 +159,7 @@ const rootConfigsRename = async ({
   const newGithubCI = githubCI.replace(globalOrgNameRegex, ORG_NAME);
   const newTurbo = turbo.replace(globalOrgNameRegex, ORG_NAME);
   const newDockerCompose = dockerCompose.replaceAll(
-    "remix-gospel-stack-postgres",
+    "remix-turborepo-postgres",
     `${APP_NAME}-postgres`
   );
 
