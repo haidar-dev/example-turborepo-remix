@@ -1,0 +1,40 @@
+{
+  "name": "@remix-gospel-stack/database",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf .turbo node_modules dist",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:seed": "tsx src/seed.ts",
+    "db:migrate:force": "prisma migrate reset --force",
+    "dev": "tsup --watch",
+    "format": "prisma format",
+    "generate": "prisma generate",
+    "lint": "eslint ./src --fix",
+    "prebuild": "npm run generate",
+    "predev": "npm run generate",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.1"
+  },
+  "devDependencies": {
+    "@remix-gospel-stack/eslint-config-vite": "workspace:*",
+    "@remix-gospel-stack/tsconfig": "workspace:*",
+    "@types/node": "^20.2.5",
+    "prisma": "^4.14.1",
+    "rimraf": "^5.0.1",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  }
+}
