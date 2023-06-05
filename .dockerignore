@@ -1,8 +1,12 @@
-*.log
+# general
 .git
 .github
+*.log
+
 # editor
 .idea
+.vscode
+
 # dependencies
 node_modules
 .pnp
@@ -24,6 +28,7 @@ packages/**/dist
 .DS_Store
 *.pem
 
+# repo
 .turbo
 .vercel
 .cache

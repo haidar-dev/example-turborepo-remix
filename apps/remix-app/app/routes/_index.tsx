@@ -24,82 +24,42 @@ export default function Index() {
   const salesPersons: SalesPersonDirectory = [
     {
       name: "mark",
-      email: "mark@remix-turborepo.com",
-      regexp:
-        /^01|^73|^74|^05|^38|^69|^42|^43|^07|^26|^04|^06|^83|^13|^84|^30|^07|^48|^12|^2B|^2A/,
+      email: "mark@anison.dev",
     },
     {
       name: "coltrane",
-      email: "coltrane@remix-turborepo.com",
-      regexp:
-        /^62|^59|^80|^60|^02|^08|^77|^51|^10|^89|^21|^52|^55|^71|^39|^25|^70|^90|^88|^54|^57|^67|^68/,
+      email: "coltrane@anison.dev",
     },
     {
       name: "philippe",
-      regexp:
-        /^33|^24|^16|^17|^87|^23|^36|^18|^41|^37|^86|^79|^85|^86|^18|^58|^03|^23|^63|^15|^19|^23|^87|^19|^46|^15|^46|^82|^81|^34|^66|^11|^09|^31|^32|^65|^64|^40|^47|^82/,
-      email: "philippe@remix-turborepo.com",
+      email: "philippe@anison.dev",
     },
     {
       name: "lance",
-      email: "lance@remix-turborepo.com",
-      regexp:
-        /^76|^27|^78|^95|^94|^93|^92|^91|^45|^28|^41|^37|^72|^61|^14|^50|^35|^56|^22|^29|^44|^49|^53/,
+      email: "lance@anison.dev",
     },
-    { name: "john", email: "john@remix-turborepo.com", regexp: /^974|^976/ },
+    {
+      name: "john",
+      email: "john@anison.dev",
+    },
     {
       name: "mike",
-      email: "mike@remix-turborepo.com",
-      regexp: /^971|^972|^973|^975|^984|^986|^987|^988/,
+      email: "mike@anison.dev",
     },
   ];
+
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
+    <main className="relative min-h-screen sm:flex sm:items-center sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
-            <div className="absolute inset-0">
-              <img
-                className="h-full w-full object-cover"
-                src="https://user-images.githubusercontent.com/4941205/189402031-751764e0-2227-4f5e-a527-6763563c5911.jpg"
-                alt="The Bling Boys of Alabama Gospel band singing"
-              />
-              <div className="absolute inset-0 bg-[color:#6a3f077d] mix-blend-multiply" />
-            </div>
-            <div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
-              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-                <span className="block uppercase text-amber-500 drop-shadow-md">
-                  Gospel Stack
-                </span>
-              </h1>
-              <p className="mx-auto my-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
-                Remix Monorepo Check the README.md file for instructions on how
-                to get this project deployed.{" "}
-              </p>
-              <div className="mx-auto flex w-full flex-row items-center justify-between gap-8">
-                <a
-                  href="https://turborepo.org"
-                  className="flex flex-1 items-center justify-end"
-                >
-                  <img
-                    src="https://user-images.githubusercontent.com/4941205/189468691-7b1f3967-2470-4bd2-923f-0be0041151dc.svg"
-                    alt="Turborepo"
-                    className="max-w-[15rem] fill-white md:max-w-[19rem]"
-                  />
-                </a>
-                <a
-                  href="https://remix.run"
-                  className="flex flex-1 items-center justify-start"
-                >
-                  <img
-                    src="https://user-images.githubusercontent.com/1500684/158298926-e45dafff-3544-4b69-96d6-d3bcc33fc76a.svg"
-                    alt="Remix"
-                    className="w-full max-w-[12rem] md:max-w-[16rem]"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+          <h1 className="text-center">
+            <span className="block text-2xl font-extrabold uppercase tracking-tight text-blue-500 sm:text-4xl ">
+              Anison Stack
+            </span>
+            <span className="block text-xl sm:text-2xl">
+              Turborepo, Remix, Tailwind CSS, etc
+            </span>
+          </h1>
         </div>
 
         <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
@@ -111,14 +71,9 @@ export default function Index() {
                 href: "https://turborepo.org",
               },
               {
-                src: "https://user-images.githubusercontent.com/1500684/157764397-ccd8ea10-b8aa-4772-a99b-35de937319e1.svg",
-                alt: "Fly.io",
-                href: "https://fly.io",
-              },
-              {
                 src: "https://user-images.githubusercontent.com/1500684/158238105-e7279a0c-1640-40db-86b0-3d3a10aab824.svg",
                 alt: "PostgreSQL",
-                href: "https://www.postgresql.org/",
+                href: "https://postgresql.org/",
               },
               {
                 src: "https://user-images.githubusercontent.com/1500684/157764484-ad64a21a-d7fb-47e3-8669-ec046da20c1f.svg",
@@ -174,105 +129,95 @@ export default function Index() {
         <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-8 px-4 py-2 sm:px-6 lg:px-8">
           <div>
             <h2>
-              <span className="block text-lg font-semibold text-orange-600">
+              <code className="block text-lg font-semibold text-orange-600">
                 packages/business, packages/database
-              </span>
-              <span className="mt-1 block text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+              </code>
+              <span className="mt-1 block text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
                 Server packages
               </span>
             </h2>
-            <h3 className="mt-3 block text-lg font-semibold text-gray-600">
+            <h3 className="mt-3 block text-lg font-semibold text-gray-600 dark:text-gray-400">
               Display prisma users from the business function{" "}
-              <code className="bg-gray-200 px-1 text-orange-600">
+              <code className="bg-gray-200 px-1 text-orange-600 dark:bg-gray-800">
                 Service.userRepository.getUsers()
               </code>
               .
             </h3>
             <div className="prose prose-lg mt-4">
-              <blockquote className="prose">
-                {users.length > 0 ? (
-                  <React.Fragment>
-                    {users.map((user) => (
-                      <div key={user.id}>{JSON.stringify(user)}</div>
-                    ))}
-                  </React.Fragment>
-                ) : (
-                  <div>No user in the database</div>
-                )}
-              </blockquote>
+              <pre className="text-xs">{JSON.stringify(users, null, 2)}</pre>
             </div>
 
-            <h3 className="mt-3 block text-lg font-semibold text-gray-600">
+            <h3 className="mt-3 block text-lg font-semibold text-gray-600 dark:text-gray-400">
               Regular server value passed from Loader here{" "}
-              <code className="bg-gray-200 px-1 text-orange-600">
+              <code className="bg-gray-200 px-1 text-orange-600 dark:bg-gray-800">
                 serverValue
               </code>
               :
             </h3>
             <div className="prose prose-lg mt-4">
-              <blockquote className="prose">
+              <blockquote className="prose dark:prose-invert">
                 <p>{serverValue}</p>
               </blockquote>
             </div>
           </div>
           <div>
             <h2 className="mt-4">
-              <span className="block text-lg font-semibold text-orange-600">
+              <code className="block text-lg font-semibold text-orange-600">
                 packages/ui
-              </span>
-              <span className="mt-2 block text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
-                Ui packages
+              </code>
+              <span className="mt-2 block text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+                UI Packages
               </span>
             </h2>
-            <h3 className="mt-3 block text-lg font-semibold text-gray-600">
+            <h3 className="mt-3 block text-lg font-semibold text-gray-600 dark:text-gray-400">
               This is an example Button Component from "ui" packages
             </h3>
             <div className="mx-auto flex max-w-sm flex-col items-start sm:flex sm:max-w-none">
               <Button />
             </div>
-            <h3 className="mt-3 block text-lg font-semibold text-gray-600">
+            <h3 className="mt-3 block text-lg font-semibold text-gray-600 dark:text-gray-400">
               Result of function{" "}
-              <code className="bg-gray-200 px-1 text-orange-600">
+              <code className="bg-gray-200 px-1 text-orange-600 dark:bg-gray-800">
                 helloFromUILibrary
               </code>
               :
             </h3>
             <div className="prose prose-lg mt-4">
-              <blockquote className="prose">
+              <blockquote className="prose dark:prose-invert">
                 <p>{helloFromUILibrary()}</p>
               </blockquote>
             </div>
           </div>
           <div>
             <h2 className="mt-4">
-              <span className="block text-lg font-semibold text-orange-600">
+              <code className="block text-lg font-semibold text-orange-600">
                 packages/internal-nobuild
-              </span>
-              <span className="mt-2 block text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">
+              </code>
+              <span className="mt-2 block text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
                 Internal TS Package with no build step
               </span>
             </h2>
-            <h3 className="mt-3 block text-lg font-semibold text-gray-600">
+            <h3 className="mt-3 block text-lg font-semibold text-gray-600 dark:text-gray-400">
               Result of function{" "}
-              <code className="text-md bg-gray-200 px-1 text-orange-600">
+              <code className="text-md bg-gray-200 px-1 text-orange-600 dark:bg-gray-800">
                 lookUpSalesPersonForZipcode("97", salesPersons)
               </code>
               :
             </h3>
             <div className="prose prose-lg mt-4">
-              <blockquote className="prose">
+              <blockquote className="prose dark:prose-invert">
                 <p>{lookUpSalesPersonForZipcode("974", salesPersons)?.email}</p>
               </blockquote>
             </div>
-            <h3 className="mt-3 block text-lg font-semibold text-gray-600">
+            <h3 className="mt-3 block text-lg font-semibold text-gray-600 dark:text-gray-400">
               Result of function{" "}
-              <code className="text-md bg-gray-200 px-1 text-orange-600">
+              <code className="text-md bg-gray-200 px-1 text-orange-600 dark:bg-gray-800">
                 lookUpSalesPersonForZipcode("63", salesPersons)
               </code>
               :
             </h3>
             <div className="prose prose-lg mt-4">
-              <blockquote className="prose">
+              <blockquote className="prose dark:prose-invert">
                 <p>{lookUpSalesPersonForZipcode("63", salesPersons)?.email}</p>
               </blockquote>
             </div>
@@ -305,7 +250,7 @@ export function ErrorBoundary() {
   }
 
   return (
-    <div className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
+    <div className="relative min-h-screen sm:flex sm:items-center sm:justify-center">
       <div className="mx-auto flex max-w-2xl flex-col gap-4 rounded-md bg-slate-50 p-12">
         <h1 className="text-3xl font-bold text-slate-900">Uh oh ...</h1>
         <p className="text-slate-700">Something went wrong.</p>

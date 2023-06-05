@@ -16,11 +16,12 @@ describe("Testing internal package.", () => {
   const salesPersons: SalesPersonDirectory = [
     {
       name: "mark",
-      email: "mark@remix-turborepo.com",
-      regexp:
-        /^01|^73|^74|^05|^38|^69|^42|^43|^07|^26|^04|^06|^83|^13|^84|^30|^07|^48|^12|^2B|^2A/,
+      email: "mark@anison.dev",
     },
-    { name: "john", email: "john@remix-turborepo.com", regexp: /^974|^976/ },
+    {
+      name: "john",
+      email: "john@anison.dev",
+    },
   ];
 
   it("Should get john", async () => {

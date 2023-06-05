@@ -20,10 +20,7 @@
       "dependsOn": ["^build"],
       "outputs": ["public/build/**"]
     },
-    "db:migrate:deploy": {
-      "outputs": []
-    },
-    "db:migrate:dev": {
+    "db:studio": {
       "outputs": []
     },
     "db:push": {
@@ -32,6 +29,12 @@
     "db:seed": {
       "outputs": [],
       "cache": false
+    },
+    "db:migrate:deploy": {
+      "outputs": []
+    },
+    "db:migrate:dev": {
+      "outputs": []
     },
     "db:migrate:force": {
       "outputs": []
@@ -74,11 +77,5 @@
     }
   },
   "globalDependencies": [".env"],
-  "globalEnv": [
-    "NODE_ENV",
-    "REMIX_APP_PORT",
-    "FLY_REGION",
-    "PRIMARY_REGION",
-    "CI"
-  ]
+  "globalEnv": ["NODE_ENV", "REMIX_APP_PORT", "CI"]
 }

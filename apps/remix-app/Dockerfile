@@ -1,4 +1,4 @@
-FROM node:18-bullseye-slim AS pruner
+FROM node:alpine AS pruner
 RUN apt-get update && apt-get install -y openssl
 WORKDIR /app
 RUN yarn global add turbo
@@ -7,7 +7,7 @@ RUN turbo prune --scope=@remix-turborepo/remix-app --docker
 RUN find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
 
 # Base strategy to have layer caching
-FROM node:18-bullseye-slim AS base
+FROM node:alpine AS base
 RUN apt-get update && apt-get install -y openssl
 WORKDIR /app
 COPY .gitignore .gitignore
@@ -40,7 +40,7 @@ RUN pnpm run generate
 RUN pnpm run build --filter=@remix-turborepo/remix-app...
 
 # Runner
-FROM node:18-bullseye-slim AS runner
+FROM node:alpine AS runner
 RUN apt-get update && apt-get install -y openssl
 WORKDIR /app
 RUN corepack enable

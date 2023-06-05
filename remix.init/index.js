@@ -97,29 +97,22 @@ const rootConfigsRename = async ({
   APP_NAME,
 }) => {
   const README_PATH = path.join(rootDirectory, "README.md");
-  const FLY_TOML_PATH = path.join(
-    rootDirectory,
-    "apps",
-    "remix-app",
-    "fly.toml"
-  );
   const EXAMPLE_ENV_PATH = path.join(rootDirectory, ".env.example");
   const ENV_PATH = path.join(rootDirectory, ".env");
   const PKG_PATH = path.join(rootDirectory, "package.json");
   const ESLINT_PATH = path.join(rootDirectory, ".eslintrc.js");
   const PRETTIER_PATH = path.join(rootDirectory, ".prettierrc.js");
-  const DEPLOY_PATH = path.join(
+  const CI_PATH = path.join(
     rootDirectory,
     ".github",
     "workflows",
-    "deploy.yml"
+    "actions.yml"
   );
   const TURBO_PATH = path.join(rootDirectory, "turbo.json");
   const DOCKER_COMPOSE_PATH = path.join(rootDirectory, "docker-compose.yml");
   const globalOrgNameRegex = new RegExp(orgNameRegex, "g");
 
   const [
-    flyTomlContent,
     readme,
     env,
     packageJson,
@@ -129,13 +122,12 @@ const rootConfigsRename = async ({
     turbo,
     dockerCompose,
   ] = await Promise.all([
-    fs.readFile(FLY_TOML_PATH, "utf-8"),
     fs.readFile(README_PATH, "utf-8"),
     fs.readFile(EXAMPLE_ENV_PATH, "utf-8"),
     fs.readFile(PKG_PATH, "utf-8"),
     fs.readFile(ESLINT_PATH, "utf-8"),
     fs.readFile(PRETTIER_PATH, "utf-8"),
-    fs.readFile(DEPLOY_PATH, "utf-8"),
+    fs.readFile(CI_PATH, "utf-8"),
     fs.readFile(TURBO_PATH, "utf-8"),
     fs.readFile(DOCKER_COMPOSE_PATH, "utf-8"),
   ]);
@@ -143,10 +135,6 @@ const rootConfigsRename = async ({
   const newEnv = env.replace(
     /^SESSION_SECRET=.*$/m,
     `SESSION_SECRET="${getRandomString(16)}"`
-  );
-  const newFlyTomlContent = flyTomlContent.replace(
-    new RegExp(appNameRegex, "g"),
-    APP_NAME
   );
   const newPackageJson = packageJson
     .replace(globalOrgNameRegex, ORG_NAME)
@@ -164,13 +152,12 @@ const rootConfigsRename = async ({
   );
 
   const fileOperationPromises = [
-    fs.writeFile(FLY_TOML_PATH, newFlyTomlContent),
     fs.writeFile(README_PATH, newReadme),
     fs.writeFile(ENV_PATH, newEnv),
     fs.writeFile(PKG_PATH, newPackageJson),
     fs.writeFile(ESLINT_PATH, newEslint),
     fs.writeFile(PRETTIER_PATH, newPrettier),
-    fs.writeFile(DEPLOY_PATH, newGithubCI),
+    fs.writeFile(CI_PATH, newGithubCI),
     fs.writeFile(TURBO_PATH, newTurbo),
     fs.writeFile(DOCKER_COMPOSE_PATH, newDockerCompose),
     fs.rm(path.join(rootDirectory, "LICENSE.md")),
