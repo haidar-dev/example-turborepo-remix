@@ -25,16 +25,16 @@
     "predev": "npm run generate"
   },
   "dependencies": {
-    "@prisma/client": "^4.14.1"
+    "@prisma/client": "^4.15.0"
   },
   "devDependencies": {
     "@remix-turborepo/eslint-config-vite": "workspace:*",
     "@remix-turborepo/tsconfig": "workspace:*",
     "@types/node": "^20.2.5",
-    "prisma": "^4.14.1",
+    "prisma": "^4.15.0",
     "rimraf": "^5.0.1",
     "tsup": "^6.7.0",
     "tsx": "^3.12.7",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.3"
   }
 }
